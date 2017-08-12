@@ -1,21 +1,22 @@
-#Are you a business?
-#Copyright 2017, Joshua Porrata
-#If you are then you should consider contacting me fr a license to use this simpe little script. 
-#It's nt actually free for businesses, it just has no copy protection. 
-#Contact me at my email address localbeautytampabay@gmail.com for details on very low business rates. 
-#Copyright 2017, Joshua Porrata
-
-#I put Lydia's name in here
+<# Are you a business?
+Copyright 2017, Joshua Porrata
+If you are then you should consider contacting me fr a license to use this simpe little script. 
+It's nt actually free for businesses, it just has no copy protection. 
+Contact me at my email address localbeautytampabay@gmail.com for details on very low business rates. 
+Copyright 2017, Joshua Porrata
+I put Lydia's name in here #>
 
 #Just making sure there isnt any old data hanging around, I dont trust.
 Function copyright
 	{
-		Write-Host "***********************************************" -BackgroundColor Black -ForegroundColor Red
-		Write-Host "***Copyright 2017, Joshua Porrata**************" -BackgroundColor Black -ForegroundColor Red
-		Write-Host "***This program is not free for business use***" -BackgroundColor Black -ForegroundColor Red
-		Write-Host "***Contact me at localbeautytampabay@gmail.com*" -BackgroundColor Black -ForegroundColor Red
-		Write-Host "***for a cheap business license****************" -BackgroundColor Black -ForegroundColor Red
-		Write-Host "***********************************************" -BackgroundColor Black -ForegroundColor Red
+		Write-Host "***********************************************" -BackgroundColor Black -ForegroundColor DarkGreen
+		Write-Host "***Copyright 2017, Joshua Porrata**************" -BackgroundColor Black -ForegroundColor DarkGreen
+		Write-Host "***This program is not free for business use***" -BackgroundColor Black -ForegroundColor DarkGreen
+		Write-Host "***Contact me at localbeautytampabay@gmail.com*" -BackgroundColor Black -ForegroundColor DarkGreen
+		Write-Host "***for a cheap business license****************" -BackgroundColor Black -ForegroundColor DarkGreen
+		Write-Host "***Donations are wholeheartedly accepted ******" -BackgroundColor Black -ForegroundColor Red
+		Write-Host "***accepted @ www.paypal.me/lbtpa**************" -BackgroundColor Black -ForegroundColor Red
+		Write-Host "***********************************************" -BackgroundColor Black -ForegroundColor DarkGreen
 	}
 Clear-Host
 Start-Sleep -Seconds 2
@@ -65,7 +66,6 @@ copyright
 [boolean]$ReadPaths = $true
 $testReadPath = $false
 $testReadDestPath = $false
-[int]$inputcount = 0
 
 # 0 Does not show logs, but saves them to the desktop, 1 Makes a popup grid view of the logs and saves them to the desktop
 [boolean]$displayLogs = 1
@@ -74,7 +74,7 @@ $testReadDestPath = $false
 #After a move/copy is performed a message will be displayed showing the original path and the new path 1= show 0 = dont show
 [boolean]$watchWork = 0
 #Test mode, 1 means It will not execute the actual move/copy but will do everything else, 0 will perform the code like normal
-[boolean]$testMode = 1
+[boolean]$testMode = 0
 #Future feature, will dump logs after each step.
 [Boolean]$debugMode = 0
 
@@ -107,7 +107,8 @@ if ($ReadPaths -eq $true)
 		{	
 			Write-Host "You entered: $destPath  Does the path exist? $testReadDestPath" -ForegroundColor Green
 		}
-		else {
+	else 
+		{
 			Write-Host "You entered: $destPath  Does the path exist? $testReadDestPath" -ForegroundColor Red
 		}
 		Write-Host "`nChecking paths and going to sleep for 2 seconds before showing "
@@ -123,7 +124,7 @@ if ($sourcePath -ne $null)
 					Write-Host "The Source Directory is empty. `nThe source directory you entered was `n"
 					Write-Host "$sourcePath `n" -ForegroundColor Red
 					Write-Host "I will break the script; check the directory and ensure there are files for me to sort."
-					Break
+			Break
 				}
 	}
 
@@ -382,5 +383,6 @@ Else
 	}	
 copyright
 clearOldVar
+
 
 #Copyright 2017, Joshua Porrata
