@@ -70,9 +70,9 @@ $testReadDestPath = $false
 # 1 moves the files from the source directory, 0 copies them
 [boolean]$copyOrMove = 1
 #After a move/copy is performed a message will be displayed showing the original path and the new path 1= show 0 = dont show
-[boolean]$watchWork = 0
+[boolean]$watchWork = 1
 #Test mode, 1 means It will not execute the actual move/copy but will do everything else, 0 will perform the code like normal
-[boolean]$testMode = 1
+[boolean]$testMode = 0
 #Future feature, will dump logs after each step.
 [Boolean]$debugMode = 0
 #I am either going to include a feature to find and isolate duplicates in this script or I am going to break it out to another script
@@ -89,6 +89,7 @@ function readPaths {
             #varies output based on whether the path exists or not 
             if ($testReadPath) {
                 Write-Host "You entered: $sourcepath  Does the path exist? $testReadPath" -ForegroundColor Green
+                
             }
             else {
                 Write-Host "You entered: $sourcepath  Does the path exist? $testReadPath"	-ForegroundColor Red
@@ -98,6 +99,7 @@ function readPaths {
             $testReadDestPath = Test-Path $destPath
             if ($testReadDestPath) {	
                 Write-Host "You entered: $destPath  Does the path exist? $testReadDestPath" -ForegroundColor Green
+                
             }
             else {
                 Write-Host "You entered: $destPath  Does the path exist? $testReadDestPath" -ForegroundColor Red
@@ -117,7 +119,11 @@ function readPaths {
                 Break
             }
         }
+        $script:destpath =  $destPath
+        $script:sourcepath =  $sourcePath
+        $script:directoryInfo = $directoryInfo
     }
+
 }
 
 Write-Host "The following paramaters are set:" -BackgroundColor Black -ForegroundColor Green
@@ -140,17 +146,17 @@ $moveLoopCollector = @()
 
 #creating a hastable with data, this will be saved as a CSV for each time this runs and is used to find the copy commands
 Foreach ($line in $directoryInfo) {
-	  	$icount1 = 0
+	$icount1 = 0
     $linedate = $line.CreationTime.ToShortDateString()
     $lineDateFormatted = $linedate.Replace('/', '-')
     $MovePath = Join-Path $destPath $lineDateFormatted 
     $MovePath = Join-Path $MovePath $line.Name
     $formatedDate = $line.CreationTime.ToShortDateString() 
     $formatedDate = $formatedDate.Replace('/', '-')
-		
+	$dirCount = 	$directoryInfo.Count
     #Array Block
     $LoopObject = New-Object PSObject @()            
-	  	$LoopObject | Add-Member -MemberType NoteProperty -Name "CreationDate" -Value $formatedDate -ErrorVariable $tableCreationError
+	$LoopObject | Add-Member -MemberType NoteProperty -Name "CreationDate" -Value $formatedDate -ErrorVariable $tableCreationError
     $LoopObject | Add-Member -MemberType NoteProperty -Name "FileName" -Value $line.Name -ErrorVariable $tableCreationError
     $LoopObject | Add-Member -MemberType NoteProperty -Name "Length" -Value $line.Length -ErrorVariable $tableCreationError
     $LoopObject | Add-Member -MemberType NoteProperty -Name "FileType" -Value $line.Extension -ErrorVariable $tableCreationError
@@ -161,7 +167,7 @@ Foreach ($line in $directoryInfo) {
     #$LoopObject #re-enable this line if you like to see things scroll
     #Copyright 2017, Joshua Porrata
     $script:directoryObject += $LoopObject
-    Write-Progress -Activity "Scanning Objects " -status "Scanned $icount1 of $dirCount "  -percentComplete ($icount1 / $dircount.Count * 100) -ErrorAction SilentlyContinue
+    Write-Progress -Activity "Scanning Objects " -status "Scanned $icount1 of $dirCount "  -percentComplete ($icount1 / $dircount * 100) -ErrorAction SilentlyContinue
     $icount1++
 }
 
