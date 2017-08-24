@@ -15,7 +15,7 @@
 
 *  What does it do?
 
-    I'ts duty is to organize files into folders by their creation date. 
+    It's duty is to organize files into folders by their creation date. 
 
 *  Why?
 
@@ -29,7 +29,8 @@
     This script should organize them according to my scheme.
 
 * What command runs the script? 
-```./Organize-Files.ps1```
+
+```.\Organize-Files.ps1```
 
 * What are the defaults?
     1. It will prompt you for the root source path, it will recurse through 
@@ -41,11 +42,13 @@
     4. It is not in testMode but can be put into testmode. 
 
 * It broke my computer,deleted files, exploded! 
-    1. There is no warranty or guarantee that this script will work the way you
-        or I think it will. Good Luck.
+    
+    There is no warranty or guarantee that this script will work the way you
+    or I think it will. Good Luck.
 
 * Will this run on OSX, Linux, or powershell <Insert verions -ne 5.1>
-    1. I have no idea
+    
+    I have no idea
 
 #Here is what the execution block of the script looks like along with Parameter
 #info.
