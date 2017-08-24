@@ -9,32 +9,43 @@
 ***accepted @ www.paypal.me/lbtpa**************
 ***********************************************
 ```
-#1. What is it actually called?
+* What is it actually called?
+
     The program is now called Organize-Files 
-#2. What does it do?
+
+*  What does it do?
+
     I'ts duty is to organize files into folders by their creation date. 
-#3. Why?
-    I am a photographer on the side and I will sometimes, after a long day just 
-    dump a weeks worth of files into a folder to organize later. I use a scheme 
+
+*  Why?
+
+    I am a photographer on the side and I will sometimes, after a long day just
+    dump a weeks worth of files into a folder to organize later. I use a scheme
     like this to store files
+
     c:\users\USERNAME\pictures\YEAR\DATEOFPICTURECREATION\FILENAME.DNG
-    Naturally this is foolish and I wind up with a month of unorganized files. 
+    
+    Naturally this is foolish and I wind up with a month of unorganized files.
     This script should organize them according to my scheme.
-#4. What command runs the script? 
-    ./Organize-Files.ps1
-#5. What are the defaults?
-    A. It will prompt you for the root source path, it will recurse through 
+
+* What command runs the script? 
+```./Organize-Files.ps1```
+
+* What are the defaults?
+    1. It will prompt you for the root source path, it will recurse through 
         folders. You can input a permanent Source/Destination, but thats on you.
-    B. It will COPY not move files, this can be adjusted using paramaters within 
+    2. It will COPY not move files, this can be adjusted using paramaters within 
         The main body of the script. Starting around line 338
-    C. It will oupen an out gridview window and sunp a CSV in the directory it
+    3. It will oupen an out gridview window and sunp a CSV in the directory it
         was run in. The CSV will be OVERWRITTEN each time the script runs
-    D. It is not in testMode but can be put into testmode. 
-#6. It broke my computer,deleted files, exploded! 
-    A. There is no warranty or guarantee that this script will work the way you
+    4. It is not in testMode but can be put into testmode. 
+
+* It broke my computer,deleted files, exploded! 
+    1. There is no warranty or guarantee that this script will work the way you
         or I think it will. Good Luck.
-#7. Will this run on OSX, Linux, or powershell <Insert verions -ne 5.1>
-    A. I have no idea
+
+* Will this run on OSX, Linux, or powershell <Insert verions -ne 5.1>
+    1. I have no idea
 
 #Here is what the execution block of the script looks like along with Parameter
 #info.
