@@ -30,14 +30,14 @@
 
 * What command runs the script? 
 
-```.\Organize-Files.ps1```
+    ```.\Organize-Files.ps1```
 
 * What are the defaults?
     1. It will prompt you for the root source path, it will recurse through 
         folders. You can input a permanent Source/Destination, but thats on you.
     2. It will COPY not move files, this can be adjusted using paramaters within 
         The main body of the script. Starting around line 338
-    3. It will oupen an out gridview window and sunp a CSV in the directory it
+    3. It will open an ```out-gridview``` window and dump a CSV in the directory it
         was run in. The CSV will be OVERWRITTEN each time the script runs
     4. It is not in testMode but can be put into testmode. 
 
@@ -50,8 +50,7 @@
     
     I have no idea
 
-#Here is what the execution block of the script looks like along with Parameter
-#info.
+#Here is what the execution block of the script looks like along with Parameter info.
 
 ```powershell
 Clear-Host
